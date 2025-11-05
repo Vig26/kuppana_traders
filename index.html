@@ -7,48 +7,57 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-    body { font-family: 'Poppins', sans-serif; color: #333; background-color: #fdfdfd; }
-    
-    /* Header */
-    header {
-      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0,0,0,0.5)), 
-                  url('https://images.unsplash.com/photo-1595433707802-9cf38b1e7f9c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
-    }
-    header h1 { font-size: 3rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; }
-    header p { font-size: 1.3rem; max-width: 700px; margin-bottom: 25px; line-height: 1.6; }
-    header a {
-      background: #25D366; color: #fff; padding: 12px 25px;
-      border-radius: 30px; text-decoration: none; font-weight: bold;
-      transition: background 0.3s ease-in-out;
-    }
-    header a:hover { background: #128C7E; }
+    body { font-family: 'Poppins', sans-serif; background: #fdfdfd; color: #333; }
 
     /* Navbar */
     nav {
-      background: #2e7d32;
-      display: flex; justify-content: center; flex-wrap: wrap;
-      position: sticky; top: 0; z-index: 10;
+      background: #1b5e20;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 30px; position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .logo {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .logo img {
+      height: 45px; width: 45px; border-radius: 50%;
+    }
+    .logo h1 {
+      color: #fff; font-size: 1.4rem; letter-spacing: 1px;
+    }
+    nav ul {
+      display: flex; list-style: none; gap: 20px;
     }
     nav a {
-      color: white; text-decoration: none; padding: 15px 25px;
-      display: block; transition: background 0.3s;
+      color: white; text-decoration: none; padding: 8px 14px; border-radius: 6px;
+      transition: background 0.3s ease;
     }
-    nav a:hover { background: #1b5e20; }
+    nav a:hover {
+      background: #2e7d32;
+    }
 
-    /* Section styling */
+    /* Hero Section */
+    header {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0,0,0,0.5)), 
+                  url('https://images.unsplash.com/photo-1595433707802-9cf38b1e7f9c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+      color: white; text-align: center; padding: 20px;
+    }
+    header h2 { font-size: 3rem; margin-bottom: 10px; text-transform: uppercase; }
+    header p { font-size: 1.2rem; max-width: 700px; margin-bottom: 20px; }
+    header .hero-btn {
+      background: #25D366; color: #fff; padding: 12px 25px; border-radius: 30px;
+      text-decoration: none; font-weight: bold; transition: background 0.3s ease-in-out;
+    }
+    header .hero-btn:hover { background: #128C7E; }
+
+    /* Section */
     section { padding: 70px 20px; max-width: 1200px; margin: auto; }
-    h2 { color: #2e7d32; text-align: center; margin-bottom: 40px; font-size: 2rem; }
+    h2 { color: #1b5e20; text-align: center; margin-bottom: 40px; font-size: 2rem; }
 
     /* About */
     .about-container {
-      display: flex; flex-wrap: wrap; align-items: center; gap: 30px;
+      display: flex; flex-wrap: wrap; gap: 40px; align-items: center;
     }
     .about-container img {
       flex: 1 1 400px; width: 100%; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
@@ -56,8 +65,22 @@
     .about-text {
       flex: 1 1 500px;
     }
-    .about-text h3 { color: #1b5e20; margin-bottom: 15px; }
+    .about-text h3 { color: #1b5e20; margin-bottom: 10px; }
     .about-text p { line-height: 1.7; margin-bottom: 10px; }
+    .founder {
+      margin-top: 30px; display: flex; align-items: center; gap: 20px;
+    }
+    .founder img {
+      width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #2e7d32;
+    }
+    .founder-info {
+      color: #333;
+    }
+    .founder-info h4 { color: #1b5e20; font-size: 1.1rem; margin-bottom: 5px; }
+    .govt-tag {
+      background: #e8f5e9; padding: 12px 15px; border-left: 5px solid #2e7d32; border-radius: 8px;
+      margin-top: 20px; line-height: 1.6;
+    }
 
     /* Services */
     .services {
@@ -72,38 +95,37 @@
 
     /* Gallery */
     .gallery {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
     }
-    .gallery img {
-      width: 100%; height: 230px; object-fit: cover; border-radius: 10px;
-      transition: transform 0.3s, box-shadow 0.3s;
+    .gallery-item {
+      position: relative; overflow: hidden; border-radius: 12px;
     }
-    .gallery img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    .gallery-item img {
+      width: 100%; height: 230px; object-fit: cover; transition: transform 0.4s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.1); }
+    .gallery-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: rgba(0,0,0,0.6); color: #fff; text-align: center; padding: 8px; font-size: 0.9rem;
     }
 
     /* Contact */
-    .contact-info {
-      text-align: center;
-      line-height: 2;
-    }
+    .contact-info { text-align: center; line-height: 2; }
     .contact-info a { color: #2e7d32; text-decoration: none; font-weight: 600; }
 
     /* Footer */
     footer {
       background: linear-gradient(45deg, #1b5e20, #388e3c);
-      color: white;
-      text-align: center;
-      padding: 25px 10px;
+      color: white; text-align: center; padding: 25px 10px;
     }
 
-    /* Floating WhatsApp + Back-to-top */
+    /* Floating Buttons */
     .whatsapp, .top-btn {
-      position: fixed; bottom: 20px; right: 20px;
-      border-radius: 50%; width: 55px; height: 55px;
-      display: flex; justify-content: center; align-items: center;
-      font-size: 25px; text-decoration: none; color: #fff; z-index: 100;
+      position: fixed; bottom: 20px; right: 20px; border-radius: 50%;
+      width: 55px; height: 55px; display: flex; justify-content: center; align-items: center;
+      font-size: 25px; color: #fff; text-decoration: none; z-index: 100;
     }
     .whatsapp { background: #25D366; right: 20px; }
     .top-btn { background: #2e7d32; right: 90px; display: none; }
@@ -112,66 +134,97 @@
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <header>
-    <h1>Kuppana Traders</h1>
-    <p>We Buy & Sell Quality Casuarina Trees — Trusted Timber Dealers in Tamil Nadu.</p>
-    <a href="#about">Discover More</a>
-  </header>
-
   <!-- Navbar -->
   <nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#contact">Contact</a>
+    <div class="logo">
+      <img src="https://via.placeholder.com/80x80.png?text=KT" alt="Kuppana Traders Logo">
+      <h1>Kuppana Traders</h1>
+    </div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </nav>
 
-  <!-- About Section -->
+  <!-- Hero -->
+  <header>
+    <h2>Casuarina Tree Dealers</h2>
+    <p>Trusted Government Approved Timber Traders | UDYAM Reg. No: TN-31-0087934</p>
+    <a href="#about" class="hero-btn">Discover More</a>
+  </header>
+
+  <!-- About -->
   <section id="about">
     <h2>About Us</h2>
     <div class="about-container">
       <img src="https://images.unsplash.com/photo-1586769852836-bc069f19e1b1" alt="Casuarina Trees">
       <div class="about-text">
         <h3>Growing Trust, Trading Quality</h3>
-        <p>At <b>Kuppana Traders</b>, we are passionate about connecting farmers and industries through sustainable Casuarina trade. Based in <b>Vanur (TK), Villupuram, Tamil Nadu</b>, we specialize in sourcing, purchasing, and selling premium Casuarina trees used for timber, fencing, and fuel wood.</p>
-        <p>Our focus is on fair pricing, timely transactions, and transparent deals that build long-term partnerships. We also guide farmers in cultivation and harvesting, ensuring mutual growth and profitability.</p>
+        <p>At <b>Kuppana Traders</b>, we are dedicated to bridging the gap between farmers and industries by providing sustainable and ethical Casuarina trading solutions. Based in <b>Vanur (TK), Villupuram, Tamil Nadu</b>, we are recognized as a <b>Government Approved Trader (MSME / UDYAM Certified)</b>.</p>
+        <div class="govt-tag">
+          <strong>UDYAM Certificate Number:</strong> TN-31-0087934<br>
+          Registered as a Government Approved MSME Timber Trader.
+        </div>
+        <div class="founder">
+          <img src="https://via.placeholder.com/100x100.png?text=Founder" alt="Founder">
+          <div class="founder-info">
+            <h4>Founder: Rajesh Kuppusamy, MBA</h4>
+            <p>Entrepreneur | Visionary in Sustainable Forestry & Timber Trade</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Services Section -->
+  <!-- Services -->
   <section id="services">
     <h2>Our Services</h2>
     <div class="services">
       <div class="card">
         <h3>🌳 Buy Casuarina Trees</h3>
-        <p>We purchase matured Casuarina trees directly from farmers at fair prices, ensuring complete cutting and transport support.</p>
+        <p>We purchase matured Casuarina trees directly from farmers at fair prices, ensuring cutting and transport support.</p>
       </div>
       <div class="card">
         <h3>🪵 Sell Casuarina Timber</h3>
-        <p>We supply top-quality Casuarina timber and poles for various commercial and construction needs across Tamil Nadu.</p>
+        <p>We supply top-quality Casuarina timber for commercial and construction purposes across Tamil Nadu.</p>
       </div>
       <div class="card">
         <h3>🌱 Plantation Consultation</h3>
-        <p>Our team assists with soil preparation, planting techniques, and maintenance for healthy Casuarina growth.</p>
+        <p>Our experts provide guidance on cultivation, harvesting, and profitable Casuarina farming practices.</p>
       </div>
     </div>
   </section>
 
-  <!-- Gallery Section -->
+  <!-- Gallery -->
   <section id="gallery">
     <h2>Gallery</h2>
     <div class="gallery">
-      <img src="https://images.unsplash.com/photo-1597255191894-3659c4b52b2c" alt="Casuarina Plantation">
-      <img src="https://images.unsplash.com/photo-1604328698692-1e4b9d6c6b06" alt="Tree Logs">
-      <img src="https://images.unsplash.com/photo-1502786129293-79981df4e689" alt="Forest View">
-      <img src="https://images.unsplash.com/photo-1595433707802-9cf38b1e7f9c" alt="Truck Loading">
-      <img src="https://images.unsplash.com/photo-1578301978693-85fa9c72c4a7" alt="Casuarina Field">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1597255191894-3659c4b52b2c" alt="Casuarina Plantation">
+        <div class="gallery-caption">Healthy Casuarina Plantation</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1604328698692-1e4b9d6c6b06" alt="Tree Logs">
+        <div class="gallery-caption">Harvested Timber Logs</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1502786129293-79981df4e689" alt="Truck Loading">
+        <div class="gallery-caption">Loading for Transport</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1578301978693-85fa9c72c4a7" alt="Wood Yard">
+        <div class="gallery-caption">Wood Yard Collection</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1595433707802-9cf38b1e7f9c" alt="Casuarina Field">
+        <div class="gallery-caption">Casuarina Tree Field</div>
+      </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Contact -->
   <section id="contact">
     <h2>Contact Us</h2>
     <div class="contact-info">
@@ -183,7 +236,7 @@
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Kuppana Traders | All Rights Reserved</p>
+    <p>© 2025 Kuppana Traders | Government Approved MSME | All Rights Reserved</p>
   </footer>
 
   <!-- Floating Buttons -->
@@ -191,7 +244,6 @@
   <a href="#top" class="top-btn" id="backToTop">⬆️</a>
 
   <script>
-    // Show back-to-top button
     const topBtn = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 400) topBtn.style.display = 'flex';
