@@ -5,42 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kuppana Traders | Casuarina Tree Dealer</title>
   <link rel="icon" type="image/x-icon" href="IMG-20251105-WA0012.jpg">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-    body { font-family: 'Poppins', sans-serif; background: #fdfdfd; color: #333; }
+    body { font-family: 'Poppins', sans-serif; background: #fdfdfd; color: #333; line-height: 1.6; }
 
     /* Navbar */
     nav {
-      background: #1b5e20;
+      background: linear-gradient(135deg, #1b5e20, #388e3c);
       display: flex; justify-content: space-between; align-items: center;
-      padding: 10px 30px; position: sticky; top: 0; z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      padding: 15px 30px; position: sticky; top: 0; z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
     }
-    .logo { display: flex; align-items: center; gap: 10px; }
-    .logo img { height: 45px; width: 45px; border-radius: 50%; }
-    .logo h1 { color: #fff; font-size: 1.3rem; letter-spacing: 1px; }
+    .logo { display: flex; align-items: center; gap: 15px; }
+    .logo img { height: 50px; width: 50px; border-radius: 50%; border: 2px solid #fff; }
+    .logo h1 { color: #fff; font-size: 1.5rem; letter-spacing: 1px; font-weight: 600; }
 
     nav ul {
-      display: flex; list-style: none; gap: 20px;
+      display: flex; list-style: none; gap: 25px;
     }
     nav a {
-      color: white; text-decoration: none; padding: 8px 14px; border-radius: 6px;
-      transition: background 0.3s ease;
+      color: white; text-decoration: none; padding: 10px 18px; border-radius: 25px;
+      transition: all 0.3s ease; font-weight: 500;
     }
-    nav a:hover { background: #2e7d32; }
+    nav a:hover { background: rgba(255,255,255,0.2); transform: translateY(-2px); }
 
     /* Mobile Menu */
     .menu-icon {
-      display: none; font-size: 26px; color: white; cursor: pointer;
+      display: none; font-size: 28px; color: white; cursor: pointer;
     }
     @media (max-width: 768px) {
       nav ul {
-        position: absolute; top: 65px; right: 0;
-        background: #1b5e20; flex-direction: column; width: 100%;
-        text-align: center; display: none;
+        position: absolute; top: 70px; right: 0;
+        background: linear-gradient(135deg, #1b5e20, #388e3c); flex-direction: column; width: 100%;
+        text-align: center; display: none; padding: 20px 0;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
       }
       nav ul.active { display: flex; }
       .menu-icon { display: block; }
@@ -48,97 +50,126 @@
 
     /* Hero */
     header {
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)),
                   url('https://images.unsplash.com/photo-1595433707802-9cf38b1e7f9c?auto=format&fit=crop&w=1600&q=80')
                   center/cover no-repeat;
-      height: 85vh; display: flex; flex-direction: column;
+      height: 90vh; display: flex; flex-direction: column;
       justify-content: center; align-items: center;
       color: white; text-align: center; padding: 20px;
+      position: relative; overflow: hidden;
     }
-    header h2 { font-size: 2.6rem; margin-bottom: 10px; text-transform: uppercase; }
-    header p { font-size: 1.1rem; max-width: 700px; margin-bottom: 20px; }
+    header::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      pointer-events: none;
+    }
+    header .hero-content {
+      position: relative; z-index: 1; max-width: 800px;
+    }
+    header h2 { font-size: 3.5rem; margin-bottom: 15px; text-transform: uppercase; font-weight: 700; letter-spacing: 2px; }
+    header .subtitle { font-size: 1.4rem; margin-bottom: 20px; font-weight: 300; }
+    header p { font-size: 1.2rem; max-width: 700px; margin-bottom: 30px; font-weight: 400; }
+    header .hero-features {
+      display: flex; justify-content: center; gap: 30px; margin-bottom: 40px; flex-wrap: wrap;
+    }
+    header .feature {
+      display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 30px; backdrop-filter: blur(5px);
+    }
+    header .feature i { font-size: 1.5rem; color: #25D366; }
     header .hero-btn {
-      background: #25D366; color: #fff; padding: 12px 25px; border-radius: 30px;
-      text-decoration: none; font-weight: bold; transition: background 0.3s ease-in-out;
+      background: linear-gradient(45deg, #25D366, #128C7E); color: #fff; padding: 15px 35px; border-radius: 50px;
+      text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: all 0.3s ease-in-out; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
-    header .hero-btn:hover { background: #128C7E; }
+    header .hero-btn:hover { background: linear-gradient(45deg, #128C7E, #25D366); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
     @media (max-width: 768px) {
-      header { height: 70vh; background-position: center; }
-      header h2 { font-size: 1.8rem; }
+      header { height: 75vh; background-position: center; }
+      header h2 { font-size: 2.5rem; }
+      header .subtitle { font-size: 1.2rem; }
       header p { font-size: 1rem; }
+      header .hero-features { gap: 15px; }
+      header .feature { padding: 8px 15px; }
     }
 
-    section { padding: 60px 20px; max-width: 1200px; margin: auto; }
-    h2 { color: #1b5e20; text-align: center; margin-bottom: 40px; font-size: 2rem; }
+    section { padding: 80px 20px; max-width: 1200px; margin: auto; }
+    h2 { color: #1b5e20; text-align: center; margin-bottom: 50px; font-size: 2.5rem; font-weight: 600; position: relative; }
+    h2::after {
+      content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
+      width: 80px; height: 4px; background: linear-gradient(45deg, #1b5e20, #388e3c); border-radius: 2px;
+    }
 
     /* About */
-    .about-container { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
+    .about-container { display: flex; flex-wrap: wrap; gap: 50px; align-items: center; }
     .about-container img {
-      flex: 1 1 400px; width: 100%; border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      flex: 1 1 400px; width: 100%; border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2); transition: transform 0.3s ease;
     }
+    .about-container img:hover { transform: scale(1.05); }
     .about-text { flex: 1 1 500px; }
-    .about-text h3 { color: #1b5e20; margin-bottom: 10px; }
-    .about-text p { line-height: 1.7; margin-bottom: 10px; }
+    .about-text h3 { color: #1b5e20; margin-bottom: 15px; font-size: 1.8rem; }
+    .about-text p { line-height: 1.8; margin-bottom: 15px; font-size: 1.1rem; }
     .founder {
-      margin-top: 30px; display: flex; align-items: center; gap: 20px;
+      margin-top: 40px; display: flex; align-items: center; gap: 25px; background: #f9f9f9; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
     .founder img {
-      width: 50%; height: 50%; border-radius: 50%; object-fit: cover; border: 3px solid #2e7d32;
+      width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 4px solid #2e7d32;
     }
-    .founder-info h4 { color: #1b5e20; margin-bottom: 5px; }
+    .founder-info h4 { color: #1b5e20; margin-bottom: 8px; font-size: 1.2rem; }
     .govt-tag {
-      background: #e8f5e9; padding: 12px 15px; border-left: 5px solid #2e7d32; border-radius: 8px;
-      margin-top: 20px; line-height: 1.6;
+      background: linear-gradient(45deg, #e8f5e9, #c8e6c9); padding: 15px 20px; border-left: 6px solid #2e7d32; border-radius: 10px;
+      margin-top: 25px; line-height: 1.7; font-weight: 500;
     }
 
     /* Services */
     .services {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
     }
     .card {
-      background: #fff; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      padding: 25px; text-align: center; transition: 0.3s;
+      background: #fff; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      padding: 30px; text-align: center; transition: all 0.3s ease; border-top: 5px solid #1b5e20;
     }
-    .card:hover { transform: translateY(-8px); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-    .card h3 { color: #2e7d32; margin-bottom: 10px; }
+    .card:hover { transform: translateY(-10px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+    .card h3 { color: #2e7d32; margin-bottom: 15px; font-size: 1.4rem; }
+    .card p { font-size: 1rem; }
 
     /* Gallery */
-    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-    .gallery-item { position: relative; overflow: hidden; border-radius: 12px; }
-    .gallery-item img { width: 100%; height: 230px; object-fit: cover; transition: transform 0.4s ease; }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .gallery-item { position: relative; overflow: hidden; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    .gallery-item img { width: 100%; height: 250px; object-fit: cover; transition: transform 0.4s ease; }
     .gallery-item:hover img { transform: scale(1.1); }
     .gallery-caption {
       position: absolute; bottom: 0; left: 0; right: 0;
-      background: rgba(0,0,0,0.6); color: #fff; text-align: center; padding: 8px; font-size: 0.9rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); color: #fff; text-align: center; padding: 15px 10px; font-size: 1rem; font-weight: 500;
     }
 
     /* Contact */
-    .contact-info { text-align: center; line-height: 2; font-size: 1.05rem; }
-    .contact-info a { color: #2e7d32; text-decoration: none; font-weight: 600; }
+    .contact-info { text-align: center; line-height: 2.5; font-size: 1.1rem; background: #f9f9f9; padding: 40px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    .contact-info a { color: #2e7d32; text-decoration: none; font-weight: 600; transition: color 0.3s ease; }
+    .contact-info a:hover { color: #1b5e20; }
 
     /* Footer */
     footer {
       background: linear-gradient(45deg, #1b5e20, #388e3c);
-      color: white; text-align: center; padding: 25px 10px;
+      color: white; text-align: center; padding: 30px 10px;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
     }
 
     /* Floating Buttons */
     .whatsapp, .top-btn {
-      position: fixed; bottom: 20px; right: 20px; border-radius: 50%;
-      width: 55px; height: 55px; display: flex; justify-content: center; align-items: center;
-      font-size: 25px; color: #fff; text-decoration: none; z-index: 100;
+      position: fixed; bottom: 25px; right: 25px; border-radius: 50%;
+      width: 60px; height: 60px; display: flex; justify-content: center; align-items: center;
+      font-size: 28px; color: #fff; text-decoration: none; z-index: 100; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
     }
-    .whatsapp { background: #25D366; right: 20px; }
-    .top-btn { background: #2e7d32; right: 90px; display: none; }
-    .whatsapp:hover, .top-btn:hover { transform: scale(1.1); }
+    .whatsapp { background: linear-gradient(45deg, #25D366, #128C7E); right: 25px; }
+    .top-btn { background: linear-gradient(45deg, #2e7d32, #1b5e20); right: 100px; display: none; }
+    .whatsapp:hover, .top-btn:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
   </style>
 </head>
 <body id="top">
   <!-- Navbar -->
   <nav>
     <div class="logo">
-      <img src="IMG-20251105-WA0012.jpg" class="rounded-full mb-6 profile-image alt="Kuppana Traders Logo" />
+      <img src="IMG-20251105-WA0012.jpg" alt="Kuppana Traders Logo" />
       <h1>Kuppana Traders</h1>
     </div>
     <div class="menu-icon" id="menu">&#9776;</div>
@@ -152,9 +183,26 @@
 
   <!-- Hero -->
   <header>
-    <h2>Casuarina Tree Dealers</h2>
-    <p>Trusted Government Approved Timber Traders | UDYAM Reg. No: TN-31-0087934</p>
-    <a href="#about" class="hero-btn">Discover More</a>
+    <div class="hero-content">
+      <h2>Casuarina Tree Dealers</h2>
+      <p class="subtitle">Your Trusted Partner in Sustainable Timber Trading</p>
+      <p>Trusted Government Approved Timber Traders | UDYAM Reg. No: TN-31-0087934</p>
+      <div class="hero-features">
+        <div class="feature">
+          <i class="fas fa-leaf"></i>
+          <span>Sustainable Practices</span>
+        </div>
+        <div class="feature">
+          <i class="fas fa-handshake"></i>
+          <span>Fair Trade</span>
+        </div>
+        <div class="feature">
+          <i class="fas fa-award"></i>
+          <span>Government Approved</span>
+        </div>
+      </div>
+      <a href="#about" class="hero-btn">Discover More</a>
+    </div>
   </header>
 
   <!-- About -->
@@ -174,7 +222,7 @@
           Registered as a Government Approved Timber Trader.
         </div>
         <div class="founder">
-          <img src="IMG-20251105-WA0019.jpg" class="rounded-full mb-6 profile-image" alt="Founder" />
+          <img src="IMG-20251105-WA0019.jpg" alt="Founder" />
           <div class="founder-info">
             <h4>Founder: Rajesh Kuppusamy, MBA</h4>
             <p>Entrepreneur | Visionary in Sustainable Forestry & Timber Trade</p>
@@ -208,7 +256,7 @@
     <h2>Gallery</h2>
     <div class="gallery">
       <div class="gallery-item">
-        <img src="IMG-20251105-WA0013.jpg" />
+        <img src="IMG-20251105-WA0013.jpg" alt="Healthy Casuarina Plantation" />
         <div class="gallery-caption">Healthy Casuarina Plantation</div>
       </div>
       <div class="gallery-item">
@@ -234,34 +282,4 @@
   <section id="contact">
     <h2>Contact Us</h2>
     <div class="contact-info">
-      <p>📍 84, Pillaiyar Kovil Street, Koraikani, Vanur (TK), Villupuram, Tamil Nadu</p>
-      <p>📞 <a href="tel:+916379553269">+91 6379553269</a></p>
-      <p>📧 <a href="mailto:rajesh3012rk@gmail.com">rajesh3012rk@gmail.com</a></p>
-      <p>💬 <a href="https://wa.me/916379553269" target="_blank">Message Us on WhatsApp</a></p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Kuppana Traders | Government Approved MSME | All Rights Reserved</p>
-  </footer>
-
-  <!-- Floating Buttons -->
-  <a href="https://wa.me/916379553269" target="_blank" class="whatsapp">💬</a>
-  <a href="#top" class="top-btn" id="backToTop">⬆️</a>
-
-  <script>
-    // Mobile menu toggle
-    const menuIcon = document.getElementById('menu');
-    const navLinks = document.getElementById('navLinks');
-    menuIcon.addEventListener('click', () => navLinks.classList.toggle('active'));
-
-    // Back to top visibility
-    const topBtn = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) topBtn.style.display = 'flex';
-      else topBtn.style.display = 'none';
-    });
-  </script>
-</body>
-</html>
+      <p>📍 84, Pillaiyar Kovil Street, Koraikani, Vanur (TK), Villupuram, Tamil Nadu</p
